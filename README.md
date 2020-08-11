@@ -21,11 +21,12 @@ The manager can run on a headless server (no desktop needed). Ideally this serve
 * To start in foreground (e.g. in `screen`): `node index.js`
 * To start in background: `nohup node index.js &`
 
-#### Configuratio:
+#### Configuration:
 Edit `config.json`:
-* pkgfolder: Full path to the folder containing your pkg files (must be accessible from server)
-* myip: Set ip address of your server
-* ps4ip: Set ip address of your PS4
+* pkgfolder: Full path to the folder containing your pkg files, must be accessible from server!
+* myip: IP address of your server
+* ps4ip: IP address of your PS4
+
 optional:
 * myport: Change port of server / landing page
 
