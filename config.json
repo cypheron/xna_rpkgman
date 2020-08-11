@@ -1,0 +1,7 @@
+{
+	"pkgfolder": "/path/to/folder/with/pkg/files",
+	"myip": "YOUR.SERVER.IP.ADDRESS",
+	"ps4ip": "YOUR.PS4.IP.ADDRESS",
+	"myport": 9999,
+	"ps4port": 12800
+}
