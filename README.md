@@ -6,6 +6,8 @@ NodeJS/NPM is the only component required to run the server.
 
 The manager can run on a headless server (no desktop needed). Ideally this server should be have direct and fast access to pkg files!
 
+![Preview](preview.png)
+
 ### Prerequisites
 - NodeJS
 - NPM (Node Package Manager)
