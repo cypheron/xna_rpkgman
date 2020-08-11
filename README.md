@@ -1,8 +1,8 @@
-## Remote Package Manager (v0.1) by XNA
+## Remote Package Manager by XNA
 
 This is a lightweight installation manager for pkg files.
 It comes with a fully dynamic front-end using only jquery, jquery-ui and js-cookie (for storing tasks).
-NodeJS/NPM is the only component required to run the server.
+NodeJS/NPM is the only component required to run the webserver.
 
 The manager can run on a headless server (no desktop needed). Ideally this server should be have direct and fast access to pkg files!
 
@@ -14,11 +14,12 @@ The manager can run on a headless server (no desktop needed). Ideally this serve
 - PS4 Remote Package Installer
 
 ### Installation 
-1. Extract archive, `cd` into extracted directory
+1. Clone repository, `cd` into extracted directory
 2. Install modules: `npm install`
 3. Edit `config.json` (see below)
-4a. Start server with: `node index.js`
-4b. (To start server in background: `nohup node index.js &`)
+4. Start server:
+* To start in foreground (e.g. in `screen`): `node index.js`
+* To start in background: `nohup node index.js &`
 
 #### Configuratio:
 Edit `config.json`:
