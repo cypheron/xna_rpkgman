@@ -33,3 +33,7 @@ Remember to enable the configured port in your firewall.
 
 ### Credits
 All credit goes to **flatz** for creating the [Remote Package Installer](https://github.com/flatz/ps4_remote_pkg_installer)!
+
+### Donations
+BTC: bc1qut876f99mqs9etd827mhgxew25t5s6drxzz2ks
+ETH: 0x3279f75D9656405E6189a4413e0eaE476eeEc7F8
