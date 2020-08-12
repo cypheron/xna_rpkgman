@@ -34,7 +34,7 @@ Remember to enable the configured port in your firewall!
 
 #### Optimizing transfer speed:
 With all your devices connected via Gigabit LAN (1000BASE-T) you should be able to reach transfer speeds of more than 20 MB/s.
-Given that the installation of a 40GB pkg file takes around 30 mins.
+Given that, the installation of a 40GB pkg file takes around 30 mins.
 
 To optimize transfer speed check the following points:
 1. Server has 'fast' access to the configured `pkgfolder`, either directly or via Gigabit connection (for SMB share make sure to use SMB v3.0)
