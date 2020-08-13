@@ -127,12 +127,15 @@
 
 							let eta_mins = obj.rest_sec_total / 60;
 							let perc_done = obj.transferred_total / obj.length_total * 100;
+							let mbps = (obj.length_total - obj.transferred_total) / 1024 / 1024 / obj.rest_sec_total;
 							let label = $("#"+o.id).children("#progress").children(".progress-label");
 
 							$("#"+o.id).children("#progress").progressbar({
 								value: perc_done,
 								change: () => {
-									label.text(o.name+" ("+perc_done.toFixed(1)+" % done, "+eta_mins.toFixed(1)+" mins left)");
+									label.text(o.name+" ("+perc_done.toFixed(1)+" % done, "
+											+eta_mins.toFixed(1)+" mins left, "
+											+mbps.toFixed(1) +" MB/s)");
 								},
 								complete: () => {
 									label.text(o.name+" (Complete)");
