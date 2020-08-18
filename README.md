@@ -28,7 +28,7 @@ Edit `config.json`:
 * ps4ip: IP address of your PS4
 
 optional:
-* myport: Change port of server / landing page
+* myport: Port of server / landing page
 
 Remember to enable the configured port in your firewall!
 
@@ -47,7 +47,7 @@ Needed: [Docker](https://docs.docker.com/get-docker/)
 2. Build Docker container with: `docker build -t xna_rpkgman .`
 3. Run Docker container with: `docker run -d -p <myport>:<myport> xna_rpkgman:latest`
 
-Note: For <myport> you need to insert the port number set for 'myport' in `config.json`. For the default port the command would be `docker run -d -p <myport>:<myport> xna_rpkgman:latest`.
+Note: <myport> corresponds to 'myport' in `config.json`. For the default port the command would be `docker run -d -p 9999:9999 xna_rpkgman:latest`.
 
 ### Credits
 All credit goes to **flatz** for creating the [Remote Package Installer](https://github.com/flatz/ps4_remote_pkg_installer)!
