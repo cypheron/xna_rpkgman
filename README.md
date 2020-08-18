@@ -40,6 +40,15 @@ To optimize transfer speed check the following points:
 1. Server has 'fast' access to the configured `pkgfolder`, either directly or via Gigabit connection (for SMB share make sure to use SMB v3.0)
 2. Server and PS4 are connected to eachother via Gigabit LAN (1000 Mbit/s router/switch + Cat 5e/6/7 cables)
 
+### Building and running Docker container
+Needed: [Docker](https://docs.docker.com/get-docker/)
+
+1. Edit `config.json` (see "Configuration" section)
+2. Build Docker container with: `docker build -t xna_rpkgman .`
+3. Run Docker container with: `docker run -d -p <myport>:<myport> xna_rpkgman:latest`
+
+Note: For <myport> you need to insert the port number set for 'myport' in `config.json`. For the default port the command would be `docker run -d -p <myport>:<myport> xna_rpkgman:latest`.
+
 ### Credits
 All credit goes to **flatz** for creating the [Remote Package Installer](https://github.com/flatz/ps4_remote_pkg_installer)!
 
