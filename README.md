@@ -49,8 +49,11 @@ Needed: [Docker](https://docs.docker.com/get-docker/)
 
 Note: \<pkgfolder\> and \<myport\> corresponds to 'pkgfolder' and 'myport' in `config.json`.
 
+### Troubleshooting
+* _'Unable to set up prerequisites for package'_: Make sure the package file name does not contain any whitespaces or special characters!
+
 ### Credits
-All credit goes to **flatz** for creating the [Remote Package Installer](https://github.com/flatz/ps4_remote_pkg_installer)!
+Credit goes to **flatz** for creating the [Remote Package Installer](https://github.com/flatz/ps4_remote_pkg_installer)!
 
 ### Donations
 BTC: bc1qut876f99mqs9etd827mhgxew25t5s6drxzz2ks
