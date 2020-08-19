@@ -133,8 +133,6 @@
                 JSON.parse(tasks).forEach( (o, i) =>
                     {
                     setTimeout( () => {
-                        //$.get("/progress/"+$("#taskid").val(),
-
                         $.get("/progress/"+o.id,
                             (obj, stat) => {
                             if (! $("#"+o.id).length) {
@@ -196,19 +194,13 @@
                 $(".available").button();
 
                 let tasks = Cookies.get('tasks');
-                //if (!Cookies.get('tasks')) {
-                //}
+
                 if (tasks) {
                     let json = JSON.parse(tasks);
                 } else {
                     Cookies.set('tasks', '[]', { expires: 365 });
                 }
-                //if (tasks.indexOf("90") == -1) {
-                //obj = [
-                //  {'id': 90, 'name': "God of War"},
-                //  {'id': 89, 'name': "nutting"}
-                //];
-                //Cookies.set('tasks', JSON.stringify(obj), { expires: 365 });
+                
                 load_tasks();
                 setInterval(load_tasks, 10000);
 
