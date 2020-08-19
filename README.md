@@ -45,9 +45,9 @@ Needed: [Docker](https://docs.docker.com/get-docker/)
 
 1. Edit `config.json` (see "Configuration" section)
 2. Build Docker container with: `docker build -t xna_rpkgman .`
-3. Run Docker container with: `docker run -d -p <myport>:<myport> xna_rpkgman:latest`
+3. Run Docker container with: `docker run -d -v <pkgfolder>:<pkgfolder> -p <myport>:<myport> xna_rpkgman:latest`
 
-Note: \<myport\> corresponds to 'myport' in `config.json`. For the default port the command would be `docker run -d -p 9999:9999 xna_rpkgman:latest`.
+Note: \<pkgfolder\> and \<myport\> corresponds to 'pkgfolder' and 'myport' in `config.json`. For the default port the command would be `docker run -d -p 9999:9999 xna_rpkgman:latest`.
 
 ### Credits
 All credit goes to **flatz** for creating the [Remote Package Installer](https://github.com/flatz/ps4_remote_pkg_installer)!
