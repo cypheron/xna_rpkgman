@@ -94,7 +94,7 @@
 
             install = () => {
                 console.log($("#fileselect").val());
-                $.get("/install/"+encodeURI($("#fileselect").val()),
+                $.get("/install/"+encodeURI($("#fileselect").val().replace("/","@")),
                         (obj, stat) => {
                         if (obj.status == "fail") {
                             $("#error").text("Error: "+obj.error);
