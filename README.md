@@ -51,6 +51,7 @@ Note: \<pkgfolder\> and \<myport\> corresponds to 'pkgfolder' and 'myport' in `c
 
 ### Troubleshooting
 * _'Unable to set up prerequisites for package'_: Make sure the package file name does not contain any whitespaces or special characters!
+* UI does not update: Remote Package Installer probably hanging - restart by pressing and holding the PS button, close application and launching again.
 
 ### Credits
 Credit goes to **flatz** for creating the [Remote Package Installer](https://github.com/flatz/ps4_remote_pkg_installer)!
