@@ -99,6 +99,7 @@ app.get('/listfiles', function(req, resp){
 
 app.get('/install/:file', function(req, resp) {
     let filename = req.params['file'];
+    console.log("Install: %s", filename);
     let data = {
         'type': 'direct',
         'packages': [
@@ -164,10 +165,11 @@ app.get('/uninstall/:what/:file', function(req, resp) {
 app.get('/serve/:file', function(req, resp){
     let filename = req.params['file'];
     //filename = filename.replace(/[^a-zA-Z0-9.-]/g);
-    filename = filename.replace('@', '/');
+    filename = filename.replace('@S', '/');
+    filename = filename.replace('@W', ' ');
     let filepath = path.resolve(root, filename);
     console.log("Serving: %s", filepath);
-    resp.status(200).download(filepath, "inst.pkg");
+    resp.status(200).download(filepath, "xna.pkg");
 });
 
 let server = app.listen(config.myport, function () {  

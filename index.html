@@ -93,8 +93,11 @@
             };
 
             install = () => {
-                console.log($("#fileselect").val());
-                $.get("/install/"+encodeURI($("#fileselect").val().replace("/","@")),
+		let filename = $("#fileselect").val();
+		filename = filename.replace("/","@S");
+		filename = filename.replace(" ","@W");
+		console.log(encodeURI(filename));
+                $.get("/install/"+encodeURI(filename),
                         (obj, stat) => {
                         if (obj.status == "fail") {
                             $("#error").text("Error: "+obj.error);
