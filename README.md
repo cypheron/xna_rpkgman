@@ -50,7 +50,7 @@ Needed: [Docker](https://docs.docker.com/get-docker/)
 Note: \<pkgfolder\> and \<myport\> corresponds to 'pkgfolder' and 'myport' in `config.json`.
 
 ### Troubleshooting
-* _'Unable to set up prerequisites for package'_: Make sure the package file name does not contain any whitespaces or special characters!
+* _'Unable to set up prerequisites for package'_: Make sure that patched Kernel (e.g. unofficial Mira) is loaded, also check that the package file name does not contain any special characters!
 * UI does not update: Remote Package Installer probably hanging - restart by pressing and holding the PS button, close application and launching again.
 
 ### Credits
