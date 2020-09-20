@@ -165,8 +165,8 @@ app.get('/uninstall/:what/:file', function(req, resp) {
 app.get('/serve/:file', function(req, resp){
     let filename = req.params['file'];
     //filename = filename.replace(/[^a-zA-Z0-9.-]/g);
-    filename = filename.replace('@S', '/');
-    filename = filename.replace('@W', ' ');
+    filename = filename.replace(/@S/g, '/');
+    filename = filename.replace(/@W/g, ' ');
     let filepath = path.resolve(root, filename);
     console.log("Serving: %s", filepath);
     resp.status(200).download(filepath, "xna.pkg");

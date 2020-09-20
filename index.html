@@ -94,8 +94,8 @@
 
             install = () => {
 		let filename = $("#fileselect").val();
-		filename = filename.replace("/","@S");
-		filename = filename.replace(" ","@W");
+		filename = filename.replace(/\//g, "@S");
+		filename = filename.replace(/\ /g, "@W");
 		console.log(encodeURI(filename));
                 $.get("/install/"+encodeURI(filename),
                         (obj, stat) => {
@@ -390,7 +390,7 @@
 
         <h3>Status</h3>
         <div id="inp">
-            <label for="online">Remote Package Installer: Connected</label>
+            <label for="online">Remote Package Installer: Running</label>
             <input type="radio" id="online" disabled>
             <label for="status">Last Response: Success</label>
             <input type="radio" id="status" disabled>
