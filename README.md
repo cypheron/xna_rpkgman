@@ -1,4 +1,4 @@
-## Remote Package Manager by XNA
+## PS4 Remote Package Manager by XNA
 
 This is a lightweight installation manager for pkg files.
 It comes with a fully dynamic front-end using only jquery, jquery-ui and js-cookie (for storing tasks).
