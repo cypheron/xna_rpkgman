@@ -123,12 +123,14 @@
                     $("#but").prop('disabled', !o).button('refresh');
                     $("#butav").prop('disabled', !o).button('refresh');
                     if (o) {
-                        $("#prog > .task").show();
+                        $("#prog > .task").show().css("opacity","100%");
                     } else {
-                        $("#prog > .task").hide();
+                        $("#prog > .task").css("opacity","50%");
                     }
                 });
             };
+
+            running={}
 
             load_tasks = () => {
                 let tasks = Cookies.get('tasks');
@@ -136,8 +138,17 @@
                 JSON.parse(tasks).forEach( (o, i) =>
                     {
                     setTimeout( () => {
+                        if(running[o.id]){
+                            return;
+                        }
+
+                        running[o.id]=true;
+
                         $.get("/progress/"+o.id,
                             (obj, stat) => {
+
+                            running[o.id]=false;
+
                             if (! $("#"+o.id).length) {
                                 let temp = $("#task").clone();
                                 temp.attr("id", o.id);
@@ -164,7 +175,7 @@
                                     label.text(o.name+" (Complete)");
                                 }
                             });
-                            });
+                            }).fail( () => {running[o.id]=false;} );
                     }, 1000*i);
                 });
             };
