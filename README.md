@@ -51,7 +51,7 @@ Note: \<pkgfolder\> and \<myport\> corresponds to 'pkgfolder' and 'myport' in `c
 
 ### Troubleshooting
 * _'Unable to set up prerequisites for package'_: Make sure that patched Kernel (e.g. unofficial Mira) is loaded, also check that the package file name does not contain any special characters!
-* UI does not update: Remote Package Installer probably hanging - restart by pressing and holding the PS button, close application and launching again.
+* UI does not update (/connection problem to Remote Package Installer): Remote Package Installer needs to be running in the foreground for UI status updates! Make sure it's not hanging: Restart RPI by pressing and holding the PS button, close application and launching again.
 
 ### Credits
 Credit goes to **flatz** for creating the [Remote Package Installer](https://github.com/flatz/ps4_remote_pkg_installer)!
