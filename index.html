@@ -93,34 +93,57 @@
             };
 
             install = () => {
-		let filename = $("#fileselect").val();
-		filename = filename.replace(/\//g, "@S");
-		filename = filename.replace(/\ /g, "@W");
-		console.log(encodeURI(filename));
-                $.get("/install/"+encodeURI(filename),
-                        (obj, stat) => {
-                        if (obj.status == "fail") {
-                            $("#error").text("Error: "+obj.error);
-                        } else {
-                            $("#error").text("");
-                        }
+                install_file = (filename) => {
+                    console.log("installing: "+filename);
 
-                        $("#status").prop('checked', obj.status=="success").checkboxradio('refresh');
-                        if (obj.status == "success") {
-                            let tasks = Cookies.get('tasks');
+                    filename = filename.replace(/\//g, "@S");
+                    filename = filename.replace(/\ /g, "@W");
+                    //console.log(encodeURI(filename));
 
-                            tasks = JSON.parse(tasks);
-                            tasks.push({'id': obj.task_id, 'name': obj.title});
-                            Cookies.set('tasks', JSON.stringify(tasks), { expires: 365 });
-                            load_tasks();
-                        }
+                    $.get("/install/"+encodeURI(filename),
+                            (obj, stat) => {
+                            if (obj.status == "fail") {
+                                $("#error").text("Error: "+obj.error);
+                            } else {
+                                $("#error").text("");
+                            }
+
+                            $("#status").prop('checked', obj.status=="success").checkboxradio('refresh');
+                            if (obj.status == "success") {
+                                let tasks = Cookies.get('tasks');
+
+                                tasks = JSON.parse(tasks);
+                                tasks.push({'id': obj.task_id, 'name': obj.title});
+                                Cookies.set('tasks', JSON.stringify(tasks), { expires: 365 });
+                                load_tasks();
+                            }
+                    });
+                };
+
+                let filename = $("#fileselect").val();
+                if (! filename.endsWith(".pkg")) {
+                    let retVal = confirm(`You're about to install ALL pkgs from "${filename}". Continue?`);
+                    if (retVal == true) {
+                        $.get("/listfiles", (obj, state) => {
+                            let j = 0;
+                            obj.files.forEach( (o, i) => {
+                                if (o.startsWith(filename) && o.endsWith(".pkg")) {
+                                    setTimeout( () => {
+                                        install_file(o);
+                                    }, 3000*(j++));
+                                }
+                            });
                         });
+                    }
+                }  else {
+                    install_file(filename);
+                }
             };
 
             check_status = () => {
                 $.get("/status", (o, s) => {
                     $("#online").prop('checked', o).checkboxradio('refresh');
-                    $("#but").prop('disabled', !o).button('refresh');
+                    $("#butinst").prop('disabled', !o).button('refresh');
                     $("#butav").prop('disabled', !o).button('refresh');
                     if (o) {
                         $("#prog > .task").show().css("opacity","100%");
@@ -221,7 +244,7 @@
                 check_status();
                 setInterval(check_status, 10000);
 
-                $("#but").click(install);
+                $("#butinst").click(install);
                 $("#butav").click(() => {
                     let cusa = $("#cusa").val();
                     $.get("/avail/"+cusa, (obj, s) => {
@@ -415,7 +438,7 @@
         <h3>Install</h3>
         <div id="sel">
             <select id="fileselect"/></select>
-            <button id="but" class="install" disabled>Install</button>
+            <button id="butinst" class="install" disabled>Install</button>
         </div>
 
         <h3>Uninstall</h3>

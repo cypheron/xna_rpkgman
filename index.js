@@ -19,7 +19,7 @@ app.get('/', function(req, resp) {
 });
 
 app.get('/status', function(req, resp) {
-    request.get('http://'+ps4addr)
+    request.get('http://'+ps4addr, {timeout: 1500})
         .on('response', (response) => {
             resp.send(true);
         })
@@ -89,11 +89,21 @@ app.get('/progress/:taskid', function(req, resp) {
 });
 
 app.get('/listfiles', function(req, resp){
-    let files = globby.sync(`${root}/**/*`);
     let pkgs = [];
+    let files = globby.sync(root+'/**/*.pkg');
     files.forEach(file => {
-        file.endsWith(".pkg") ? pkgs.push(file.substring(root.length+1)) : null;
+        pkgs.push(file.substring(root.length+1));
     });
+
+    let dirs = [];
+    pkgs.forEach(pkg => {
+	dir = pkg.substring(0, pkg.lastIndexOf('/')+1);
+	if (!dirs.includes(dir)) {
+	    dirs.push(dir);
+	}
+    });
+    pkgs = dirs.concat(pkgs)
+
     resp.send({'files': pkgs});
 });
 
