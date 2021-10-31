@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  axn_rpkgman:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - "path_to_yours_pkgs:/pkgs"
+    environment:
+      - MYIP=YOUR_HOST_IP
+      - PS4IP=PS4_IP
+      - MY_PORT=9999 #Listen port on your host , must match with port open on docker.
+      - PS4_PORT=12800 #Default port for remote package installer on ps4 is 12800 , not change it.
+    ports:
+      - "9999:9999" #Must match with MY_PORT variable above.
+

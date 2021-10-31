@@ -9,4 +9,9 @@ RUN npm install
 
 COPY . .
 
-CMD ["node", "index.js"]
+RUN chmod +x run.sh
+
+ENTRYPOINT ["./run.sh"]
+
+
+
