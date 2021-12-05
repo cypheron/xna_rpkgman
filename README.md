@@ -40,14 +40,11 @@ To optimize transfer speed check the following points:
 1. Server has 'fast' access to the configured `pkgfolder`, either directly or via Gigabit connection (for SMB share make sure to use SMB v3.0)
 2. Server and PS4 are connected to eachother via Gigabit LAN (1000 Mbit/s router/switch + Cat 5e/6/7 cables)
 
-### Building and running Docker container
+### Running Docker container
 Needed: [Docker](https://docs.docker.com/get-docker/)
 
-1. Edit `config.json` (see "Configuration" section)
-2. Build Docker container with: `docker build -t xna_rpkgman .`
-3. Run Docker container with: `docker run -d -v <pkgfolder>:<pkgfolder> -p <myport>:<myport> xna_rpkgman:latest`
-
-Note: \<pkgfolder\> and \<myport\> corresponds to 'pkgfolder' and 'myport' in `config.json`.
+1. Edit docker-compose.yml with your data (host ip , ps4 ip , path to pkgs ...)
+2. Run docker-compose up -d
 
 ### Troubleshooting
 * _'Unable to set up prerequisites for package'_: Make sure that patched Kernel (e.g. unofficial Mira) is loaded, also check that the package file name does not contain any special characters!
