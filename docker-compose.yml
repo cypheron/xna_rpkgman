@@ -2,6 +2,7 @@ version: '3'
 
 services:
   axn_rpkgman:
+    restart: unless-stopped
     build:
       context: .
       dockerfile: Dockerfile
